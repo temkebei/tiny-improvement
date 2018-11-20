@@ -11,15 +11,7 @@ module.exports = function (app) {
                 res.json(err);
             });
     });
-    //to post users
-    app.post('/api/users', function (req, res) {
-        db.User.create(req.body)
-            .then(function (data) {
-                res.json({ success: true });
-            }).catch(function (err) {
-                res.json(err);
-            });
-    });
+  
     //to get kudos cards
     app.get('/api/kudos', function (req, res) {
         db.kudos.find({})
