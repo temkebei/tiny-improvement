@@ -1,0 +1,76 @@
+body {
+  background-color: black;
+  background-repeat: no-repeat; 
+  background-size: cover;
+
+}
+
+.jumbotron {
+  margin-top: 20px;
+  background-color:gray;
+  border: 5px ridge red;
+  border: 5px ridge blue;
+  
+}
+
+.circle {
+  display:block;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  background-color:black;
+  border: 3px solid gray;
+  font-size: 30px;
+}
+
+.circle:hover {
+  background-color: blue;
+}
+
+.kudosCard {
+  background-color:whitesmoke;
+  border-left: 15px solid blue;
+ 
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+#from  {
+  margin-right: 480px;
+  
+}
+
+#to {
+  margin-left: 480px;
+  
+}
+
+.modal-header {
+  background-color: blue;
+  color: aliceblue;
+}
+
+.closeModal {
+  color: white;
+}
+
+.modal-footer {
+ text-align: center;
+}
+
+@media only screen and (max-width: 1024px)  {
+
+  .kudosCard {
+      width: 100%;
+     
+  }
+
+  #from {
+     margin-right: 400px;
+ }
+ 
+ #to {
+     margin-left: 400px;
+ }
+
+}  

@@ -1,10 +1,22 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-let kudosSchema = new Schema({
-    title:String,
-    body:String
+var KudosSchema = new Schema({
+  title: String,
+  body: String,
+  from: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User"
+    }
+  ],
+  to: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User"
+    }
+  ],
 });
+const kudos = mongoose.model("kudos", KudosSchema);
 
-const kudos = mongoose.model('kudos', kudosSchema);
 module.exports = kudos;

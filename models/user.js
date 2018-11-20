@@ -1,20 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-let UserSchema = new Schema({
-  username: {
+var UserSchema = new Schema({
+  name: {
     type: String,
     trim: true,
-    required: "Username is Required"
   },
-  kudos: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "kudos"
-    }
-  ]
 });
-
 const User = mongoose.model("User", UserSchema);
-
 module.exports = User;

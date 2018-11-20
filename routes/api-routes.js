@@ -1,45 +1,44 @@
 const db = require('../models');
-
 module.exports = function (app) {
-// To get user
-  app.get('/api/user', function (req, res) {
-    db.user.find({})
-      .then(function (data) {
-        res.json(data);
-      })
-      .catch(function (err) {
-        res.json(err);
-      });
-  });
-//To post user
-  app.post('/api/user', function (req, res) {
-    db.user.create(req.body)
-      .then(function (data) {
-        res.json(data);
-      })
-      .catch(function (err) {
-        res.json(err);
-      });
-  });
-//To get kudos
-  app.get('/api/kudos', function (req, res) {
-    db.kudos.find({})
-      .then(function (data) {
-        res.json(data);
-      })
-      .catch(function (err) {
-        res.json(err);
-      });
-  });
-  //To post kudos
-  app.post('/api/kudos', function (req, res) {
-    db.kudos.find({})
-      .then(function (data) {
-        res.json(data);
-      })
-      .catch(function (err) {
-        res.json(err);
-      });
-  });
 
+    //to get users
+    app.get('/api/users', function (req, res) {
+        db.User.find({})
+            .then(function (data) {
+                res.json(data);
+            })
+            .catch(function (err) {
+                res.json(err);
+            });
+    });
+    //to post users
+    app.post('/api/users', function (req, res) {
+        db.User.create(req.body)
+            .then(function (data) {
+                res.json({ success: true });
+            }).catch(function (err) {
+                res.json(err);
+            });
+    });
+    //to get kudos cards
+    app.get('/api/kudos', function (req, res) {
+        db.kudos.find({})
+            .populate('from')
+            .populate('to')
+            .then(function (data) {
+                res.json(data);
+            })
+            .catch(function (err) {
+                res.json(err);
+            });
+    });
+    //to post kudos cards 
+    app.post('/api/kudos', function (req, res) {
+        db.kudos.create(req.body)
+            .then(function (userData) {
+                res.json(userData);
+            }).catch(function (err) {
+                res.json(err);
+            });
+    });
 }

@@ -1,7 +1,7 @@
-const user = require('./user');
-const kudos = require('./kudos');
+const User = require('./User');
+const kudos = require('./Kudos');
 
-module.exports ={
-user:user,
-kudos:kudos
+module.exports = {
+    User: User,
+    kudos: kudos
 }
